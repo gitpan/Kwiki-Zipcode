@@ -2,15 +2,13 @@ package Kwiki::Zipcode;
 use strict;
 use warnings;
 use Kwiki::Plugin '-Base';
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 const class_id => 'zipcode';
 
 sub register {
     my $registry = shift;
-    $registry->add(preference => 'zipcode',
-                   object => $self->zipcode,
-                  );
+    $registry->add(preference => $self->zipcode);
 }
 
 sub zipcode {
