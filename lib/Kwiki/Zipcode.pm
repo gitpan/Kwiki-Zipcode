@@ -1,14 +1,13 @@
 package Kwiki::Zipcode;
-use strict;
-use warnings;
-use Kwiki::Plugin '-Base';
-our $VERSION = '0.11';
+use Kwiki::Plugin -Base;
+our $VERSION = '0.12';
 
 const class_id => 'zipcode';
 
 sub register {
     my $registry = shift;
     $registry->add(preference => $self->zipcode);
+    $registry->add(prerequisite => 'user_preferences');
 }
 
 sub zipcode {
@@ -29,7 +28,6 @@ sub check_zipcode {
       unless $value =~ /^\d{5}$/;
 }
 
-1;
 __DATA__
 
 =head1 NAME 
